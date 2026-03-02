@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intramurals Team Checker</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <style>
+        body {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background-color: #0f2027;
+        }
+
+        .navbar a {
+            color: white !important;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .main-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 15px;
+        }
+
+        .checker-card {
+            background: white;
+            padding: 40px;
+            width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+        }
+
+        .checker-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+            color: #2a5298;
+        }
+
+        #resultBox {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: #1e3c72;
+        }
+
+        #teamPic {
+            display: none;
+            width: 200px;
+            margin: 20px auto 0;
+            border-radius: 15px;
+        }
+
+        button:hover {
+            transform: scale(1.03);
+            transition: 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR taken from Q1 project -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="teamchecker.html">
+                🏆 Intramurals 2026
+            </a>
+            <div>
+                <a href="index.html">Sign Up</a>
+                <a href="teamchecker.html">Team Checker</a>
+                <a href="lop.html">Players</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-container">
+        <div class="checker-card">
+
+            <h3 class="checker-title">Check Your Assigned Team</h3>
+   <!-- Registration Verification -->
+            <label class="form-label fw-bold">Online Registration Completed?</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="reg" id="regC">
+                <label class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="radio" name="reg" id="regI">
+                <label class="form-check-label">No</label>
+            </div>
+   <!-- Medical Clearance Verification -->
+            <label class="form-label fw-bold">Medical Clearance Available?</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="med" id="medC">
+                <label class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="radio" name="med" id="medI">
+                <label class="form-check-label">No</label>
+            </div>
+   <!-- Grade Selection -->
+            <label class="form-label fw-bold">Grade Level</label>
+            <select id="gradeInput" class="form-select mb-3">
+                <option value="">Select Grade</option>
+                <option value="7">Grade 7</option>
+                <option value="8">Grade 8</option>
+                <option value="9">Grade 9</option>
+                <option value="10">Grade 10</option>
+            </select>
+   <!-- Section Selection -->
+            <label class="form-label fw-bold">Section</label>
+            <select id="sectionInput" class="form-select mb-3">
+                <option value="">Select Section</option>
+                <option value="emerald">Emerald</option>
+                <option value="ruby">Ruby</option>
+                <option value="sapphire">Sapphire</option>
+                <option value="topaz">Topaz</option>
+                <option value="jade">Jade</option>
+            </select>
+
+            <button class="btn btn-primary w-100" py-click="check_team">
+                Check My Team
+            </button>
+     <!-- Team Image Display -->
+            <div id="resultBox"></div>
+            <img id="teamPic">
+
+        </div>
+    </div>
+
+    <script type="py" src="teamchecker.py"></script>
+
+</body>
+</html>
